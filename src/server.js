@@ -8,16 +8,16 @@ dotenv.config({ path: './config.env' });
 
 const DB = process.env.DATABASE_LOCAL;
 
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch(err => console.log(err));
+// mongoose
+//   .connect(DB, {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false
+//   })
+//   .then(() => {
+//     console.log('Connected to MongoDB');
+//   })
+//   .catch(err => console.log(err));
 
 const port = process.env.PORT || 8000;
 
