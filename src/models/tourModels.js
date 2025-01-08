@@ -22,7 +22,7 @@ const tourSchema = new mongoose.Schema({
     type: Number,
     default: 4.5
   },
-  ratingsQuantity:{
+  ratingsQuantity: {
     type: Number,
     default: 0
   },
@@ -49,11 +49,11 @@ const tourSchema = new mongoose.Schema({
   summary: {
     type: String,
     required: [true, 'A tour must have a summary'],
-    trim: true,
+    trim: true
   },
   description: {
     type: String,
-    trim: true,
+    trim: true
   },
   imageCover: {
     type: String,
@@ -64,7 +64,7 @@ const tourSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   },
-  startDates:[Date]
+  startDates: [Date]
 });
 
 const Tour = mongoose.model('Tour', tourSchema);

@@ -5,10 +5,22 @@ exports.getAllTours = async (req, res) => {
     const quaryObj = { ...req.query };
     const excludeFields = ['page', 'sort', 'limit', 'fields'];
     excludeFields.forEach(field => delete quaryObj[field]);
-    const query = Tour.find(quaryObj);
+    let query = Tour.find(quaryObj);
+
+    if (req.query.sort) {
+      query = query.sort(req.query.sort);
+    } else {
+      query = query.sort('-createdAt');
+    }
+
+    //peginations
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || 10;
+    const skip = (page - 1) * limit;
+    query = query.skip(skip).limit(limit);
 
     const tours = await query;
-    
+
     res.status(200).json({
       status: 200,
       success: true,
