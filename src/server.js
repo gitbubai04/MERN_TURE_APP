@@ -1,6 +1,5 @@
 /* eslint-disable */
 const mongoose = require('mongoose');
-
 const dotenv = require('dotenv');
 const app = require('./app');
 
@@ -11,7 +10,7 @@ const DB = process.env.DATABASE_LOCAL;
 console.log(DB);
 
 mongoose
-  .connect(DB, {
+  .connect('mongodb://localhost:27017/tour', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false
